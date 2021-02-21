@@ -41,7 +41,7 @@ public class AddItem extends AppCompatActivity {
 
             db.insert(content);
 
-//            Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tambah data berhasil", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);

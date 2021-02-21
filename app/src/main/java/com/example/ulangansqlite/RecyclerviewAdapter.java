@@ -95,6 +95,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
                         listContent = databaseHelper.selectContentList();
                         HomeActivity Home = new HomeActivity();
                         Home.setupRecyclerView(context, listContent, HomeActivity.recyclerView);
+                        Toast.makeText(context, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

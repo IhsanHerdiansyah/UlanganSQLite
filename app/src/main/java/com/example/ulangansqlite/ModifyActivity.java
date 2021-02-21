@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class ModifyActivity extends AppCompatActivity {
@@ -50,10 +51,7 @@ public class ModifyActivity extends AppCompatActivity {
             desc = modDesk.getEditText().getText().toString();
 
             if(title.isEmpty() && desc.isEmpty()){
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Isi data dengan benar!");
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                Toast.makeText(this, "Data tidak boleh kosong!", Toast.LENGTH_LONG).show();
             }else {
                 content.setId(intentData.getInt("id"));
                 content.setTitle(title);
@@ -62,7 +60,6 @@ public class ModifyActivity extends AppCompatActivity {
                 dbHelper.update(content);
 
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("status", "edit");
                 HomeActivity home = new HomeActivity();
                 home.setupRecyclerView();
                 finish();
